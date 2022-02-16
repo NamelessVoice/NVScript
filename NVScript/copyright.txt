@@ -1,0 +1,36 @@
+NVScript Copyright (c) 2022 Nameless Voice <namelessvoice@gmail.com>
+
+Based upon code from:
+tnhScript Copyright (c) 2003-2005 Tom N Harris <telliamed@whoopdedo.cjb.net>
+All Rights Reserved.
+
+THIS SOFTWARE IS PRIVIDED "AS IS" WITHOUT WARRANTY OF ANY KIND, EITHER EXPRESSED OR IMPLIED. NAMELESS VOICE WILL NOT BE LIABLE FOR ANY INCIDENTAL, SPECIAL, CONSEQUENTIAL OR ANY OTHER DAMAGES THAT MAY RESULT FROM THE USE OR INABILITY TO USE THIS SOFTWARE.
+YOU MAY NOT COMMERCIALLY EXPLOIT IT OR ITS OUTPUT IN ANY WAY UNDER ANY CIRCUMSTANCED.
+
+The script module "NVScript.osm" may be distributed with your fan missions as 
+long as you do not charge for the mission, other than the cost of materials 
+alone. You must include the above copyright notice and disclaimer in the 
+description of your fan mission. You should replace the words 'THIS SOFTWARE'
+with 'NVSCRIPT.OSM'.
+
+I've included the source for my scripts for informational purposes. Most of the
+underlying architecture of the scripts was built by Telliamed, and much of the 
+stuff in the lg directory was worked out by GayleSaver and Totality. Telliamed
+has also made quite a few contributions to improve the interfaces, all of which
+he offers unconditionally. But it's actually LGS's code there, we've just been 
+reverse-engineering it. So there really isn't anyone claiming ownership of it, 
+although it technically should belong to Eidos. But we don't think they're going 
+to put up a fuss about it, so long as we play fair. Consider everything in that 
+directory to be covered by the DromEd copyright agreement.
+
+Telliamed's Script and ScriptModule are based on well-known code that is common
+to all script modules, and he says you may use them in your own script modules.
+
+You may use any or all of NVScriptLib, NVGenericScript, or NVGenericTrigger
+in your own scripts.
+
+You may use the ideas and small pieces of code from NVScript, but don't just
+copy whole scripts and call them your own.
+
+Please do not distribute NVDebug.osm with a fan mission, unless you have a
+very good reason to do so.

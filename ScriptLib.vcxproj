@@ -1,0 +1,294 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup Label="ProjectConfigurations">
+    <ProjectConfiguration Include="DebugSS2|Win32">
+      <Configuration>DebugSS2</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="DebugT1|Win32">
+      <Configuration>DebugT1</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Debug|Win32">
+      <Configuration>Debug</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="ReleaseSS2|Win32">
+      <Configuration>ReleaseSS2</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="ReleaseT1|Win32">
+      <Configuration>ReleaseT1</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|Win32">
+      <Configuration>Release</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+  </ItemGroup>
+  <PropertyGroup Label="Globals">
+    <ProjectGuid>{81F440D8-57C3-4DE6-8CD0-81432E7D4A80}</ProjectGuid>
+    <RootNamespace>ScriptLib</RootNamespace>
+    <Keyword>Win32Proj</Keyword>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='ReleaseT1|Win32'" Label="Configuration">
+    <ConfigurationType>StaticLibrary</ConfigurationType>
+    <PlatformToolset>v141</PlatformToolset>
+    <CharacterSet>Unicode</CharacterSet>
+    <WholeProgramOptimization>true</WholeProgramOptimization>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='DebugT1|Win32'" Label="Configuration">
+    <ConfigurationType>StaticLibrary</ConfigurationType>
+    <PlatformToolset>v141</PlatformToolset>
+    <CharacterSet>Unicode</CharacterSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='ReleaseSS2|Win32'" Label="Configuration">
+    <ConfigurationType>StaticLibrary</ConfigurationType>
+    <PlatformToolset>v141</PlatformToolset>
+    <CharacterSet>Unicode</CharacterSet>
+    <WholeProgramOptimization>true</WholeProgramOptimization>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='DebugSS2|Win32'" Label="Configuration">
+    <ConfigurationType>StaticLibrary</ConfigurationType>
+    <PlatformToolset>v141</PlatformToolset>
+    <CharacterSet>Unicode</CharacterSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="Configuration">
+    <ConfigurationType>StaticLibrary</ConfigurationType>
+    <PlatformToolset>v141</PlatformToolset>
+    <CharacterSet>Unicode</CharacterSet>
+    <WholeProgramOptimization>true</WholeProgramOptimization>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
+    <ConfigurationType>StaticLibrary</ConfigurationType>
+    <PlatformToolset>v141</PlatformToolset>
+    <CharacterSet>Unicode</CharacterSet>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
+  <ImportGroup Label="ExtensionSettings">
+  </ImportGroup>
+  <ImportGroup Condition="'$(Configuration)|$(Platform)'=='ReleaseT1|Win32'" Label="PropertySheets">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Condition="'$(Configuration)|$(Platform)'=='DebugT1|Win32'" Label="PropertySheets">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Condition="'$(Configuration)|$(Platform)'=='ReleaseSS2|Win32'" Label="PropertySheets">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Condition="'$(Configuration)|$(Platform)'=='DebugSS2|Win32'" Label="PropertySheets">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="PropertySheets">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="PropertySheets">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <PropertyGroup Label="UserMacros" />
+  <PropertyGroup>
+    <_ProjectFileVersion>15.0.28127.55</_ProjectFileVersion>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <OutDir>$(SolutionDir)$(Configuration)\$(ProjectName)\</OutDir>
+    <IntDir>$(SolutionDir)$(Configuration)\$(ProjectName)\</IntDir>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <OutDir>$(SolutionDir)$(Configuration)\$(ProjectName)\</OutDir>
+    <IntDir>$(SolutionDir)$(Configuration)\$(ProjectName)\</IntDir>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='DebugSS2|Win32'">
+    <OutDir>$(SolutionDir)$(Configuration)\$(ProjectName)\</OutDir>
+    <IntDir>$(SolutionDir)$(Configuration)\$(ProjectName)\</IntDir>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='ReleaseSS2|Win32'">
+    <OutDir>$(SolutionDir)$(Configuration)\$(ProjectName)\</OutDir>
+    <IntDir>$(SolutionDir)$(Configuration)\$(ProjectName)\</IntDir>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='DebugT1|Win32'">
+    <OutDir>$(SolutionDir)$(Configuration)\$(ProjectName)\</OutDir>
+    <IntDir>$(SolutionDir)$(Configuration)\$(ProjectName)\</IntDir>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='ReleaseT1|Win32'">
+    <OutDir>$(SolutionDir)$(Configuration)\$(ProjectName)\</OutDir>
+    <IntDir>$(SolutionDir)$(Configuration)\$(ProjectName)\</IntDir>
+  </PropertyGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <ClCompile>
+      <Optimization>Disabled</Optimization>
+      <AdditionalIncludeDirectories>$(SolutionDir)\lg;$(SolutionDir)\NVScript;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <PreprocessorDefinitions>WIN32;_DEBUG;_LIB;GAME=2;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <MinimalRebuild>true</MinimalRebuild>
+      <BasicRuntimeChecks>EnableFastChecks</BasicRuntimeChecks>
+      <RuntimeLibrary>MultiThreadedDebugDLL</RuntimeLibrary>
+      <RuntimeTypeInfo>false</RuntimeTypeInfo>
+      <PrecompiledHeader />
+      <WarningLevel>Level3</WarningLevel>
+      <DebugInformationFormat>EditAndContinue</DebugInformationFormat>
+      <ForcedIncludeFiles>$(SolutionDir)\buildconfig.h;%(ForcedIncludeFiles)</ForcedIncludeFiles>
+    </ClCompile>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <ClCompile>
+      <Optimization>MaxSpeed</Optimization>
+      <IntrinsicFunctions>true</IntrinsicFunctions>
+      <AdditionalIncludeDirectories>$(SolutionDir)\lg;$(SolutionDir)\NVScript;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <PreprocessorDefinitions>WIN32;NDEBUG;_LIB;GAME=2;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <RuntimeLibrary>MultiThreaded</RuntimeLibrary>
+      <FunctionLevelLinking>true</FunctionLevelLinking>
+      <RuntimeTypeInfo>false</RuntimeTypeInfo>
+      <PrecompiledHeader />
+      <WarningLevel>Level3</WarningLevel>
+      <DebugInformationFormat>ProgramDatabase</DebugInformationFormat>
+      <ForcedIncludeFiles>$(SolutionDir)\buildconfig.h;%(ForcedIncludeFiles)</ForcedIncludeFiles>
+    </ClCompile>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='DebugSS2|Win32'">
+    <ClCompile>
+      <Optimization>Disabled</Optimization>
+      <AdditionalIncludeDirectories>$(SolutionDir)\lg;$(SolutionDir)\NVScript;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <PreprocessorDefinitions>WIN32;_DEBUG;_LIB;GAME=3;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <MinimalRebuild>true</MinimalRebuild>
+      <BasicRuntimeChecks>EnableFastChecks</BasicRuntimeChecks>
+      <RuntimeLibrary>MultiThreadedDebugDLL</RuntimeLibrary>
+      <RuntimeTypeInfo>false</RuntimeTypeInfo>
+      <PrecompiledHeader />
+      <WarningLevel>Level3</WarningLevel>
+      <DebugInformationFormat>EditAndContinue</DebugInformationFormat>
+      <ForcedIncludeFiles>$(SolutionDir)\buildconfig.h;%(ForcedIncludeFiles)</ForcedIncludeFiles>
+    </ClCompile>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='ReleaseSS2|Win32'">
+    <ClCompile>
+      <Optimization>MaxSpeed</Optimization>
+      <IntrinsicFunctions>true</IntrinsicFunctions>
+      <AdditionalIncludeDirectories>$(SolutionDir)\lg;$(SolutionDir)\NVScript;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <PreprocessorDefinitions>WIN32;NDEBUG;_LIB;GAME=3;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <RuntimeLibrary>MultiThreaded</RuntimeLibrary>
+      <FunctionLevelLinking>true</FunctionLevelLinking>
+      <RuntimeTypeInfo>false</RuntimeTypeInfo>
+      <PrecompiledHeader />
+      <WarningLevel>Level3</WarningLevel>
+      <DebugInformationFormat>ProgramDatabase</DebugInformationFormat>
+      <ForcedIncludeFiles>$(SolutionDir)\buildconfig.h;%(ForcedIncludeFiles)</ForcedIncludeFiles>
+    </ClCompile>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='DebugT1|Win32'">
+    <ClCompile>
+      <Optimization>Disabled</Optimization>
+      <AdditionalIncludeDirectories>$(SolutionDir)\lg;$(SolutionDir)\NVScript;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <PreprocessorDefinitions>WIN32;_DEBUG;_LIB;GAME=1;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <MinimalRebuild>true</MinimalRebuild>
+      <BasicRuntimeChecks>EnableFastChecks</BasicRuntimeChecks>
+      <RuntimeLibrary>MultiThreadedDebugDLL</RuntimeLibrary>
+      <RuntimeTypeInfo>false</RuntimeTypeInfo>
+      <PrecompiledHeader />
+      <WarningLevel>Level3</WarningLevel>
+      <DebugInformationFormat>EditAndContinue</DebugInformationFormat>
+      <ForcedIncludeFiles>$(SolutionDir)\buildconfig.h;%(ForcedIncludeFiles)</ForcedIncludeFiles>
+    </ClCompile>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='ReleaseT1|Win32'">
+    <ClCompile>
+      <Optimization>MaxSpeed</Optimization>
+      <IntrinsicFunctions>true</IntrinsicFunctions>
+      <AdditionalIncludeDirectories>$(SolutionDir)\lg;$(SolutionDir)\NVScript;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <PreprocessorDefinitions>WIN32;NDEBUG;_LIB;GAME=1;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <RuntimeLibrary>MultiThreaded</RuntimeLibrary>
+      <FunctionLevelLinking>true</FunctionLevelLinking>
+      <RuntimeTypeInfo>false</RuntimeTypeInfo>
+      <PrecompiledHeader />
+      <WarningLevel>Level3</WarningLevel>
+      <DebugInformationFormat>ProgramDatabase</DebugInformationFormat>
+      <ForcedIncludeFiles>$(SolutionDir)\buildconfig.h;%(ForcedIncludeFiles)</ForcedIncludeFiles>
+    </ClCompile>
+  </ItemDefinitionGroup>
+  <ItemGroup>
+    <ClCompile Include="NVScript\ScriptLib\AddMetaProperty.cpp" />
+    <ClCompile Include="NVScript\ScriptLib\AddSingleMetaProperty.cpp" />
+    <ClCompile Include="NVScript\ScriptLib\CalcTextTime.cpp" />
+    <ClCompile Include="NVScript\ScriptLib\CDSend.cpp" />
+    <ClCompile Include="NVScript\ScriptLib\DebugPrintf.cpp" />
+    <ClCompile Include="NVScript\ScriptLib\DeleteAllLinks.cpp" />
+    <ClCompile Include="NVScript\ScriptLib\DeleteAllLinksByData.cpp" />
+    <ClCompile Include="NVScript\ScriptLib\DisplayPrintf.cpp" />
+    <ClCompile Include="NVScript\ScriptLib\FixupPlayerLinks.cpp" />
+    <ClCompile Include="NVScript\ScriptLib\GetAnyLink.cpp" />
+    <ClCompile Include="NVScript\ScriptLib\GetAnyLinkByData.cpp" />
+    <ClCompile Include="NVScript\ScriptLib\GetAnyLinkByDataDest.cpp" />
+    <ClCompile Include="NVScript\ScriptLib\GetAnyLinkByDataInheritedSrc.cpp" />
+    <ClCompile Include="NVScript\ScriptLib\GetAnyLinkDest.cpp" />
+    <ClCompile Include="NVScript\ScriptLib\GetAnyLinkInheritedSrc.cpp" />
+    <ClCompile Include="NVScript\ScriptLib\GetObjectParamBool.cpp" />
+    <ClCompile Include="NVScript\ScriptLib\GetObjectParamFloat.cpp" />
+    <ClCompile Include="NVScript\ScriptLib\GetObjectParamInt.cpp" />
+    <ClCompile Include="NVScript\ScriptLib\GetObjectParamObject.cpp" />
+    <ClCompile Include="NVScript\ScriptLib\GetObjectParams.cpp" />
+    <ClCompile Include="NVScript\ScriptLib\GetObjectParamsNoInherit.cpp" />
+    <ClCompile Include="NVScript\ScriptLib\GetObjectParamString.cpp" />
+    <ClCompile Include="NVScript\ScriptLib\GetObjectParamTime.cpp" />
+    <ClCompile Include="NVScript\ScriptLib\GetOneLink.cpp" />
+    <ClCompile Include="NVScript\ScriptLib\GetOneLinkByData.cpp" />
+    <ClCompile Include="NVScript\ScriptLib\GetOneLinkByDataDest.cpp" />
+    <ClCompile Include="NVScript\ScriptLib\GetOneLinkByDataInheritedSrc.cpp" />
+    <ClCompile Include="NVScript\ScriptLib\GetOneLinkDest.cpp" />
+    <ClCompile Include="NVScript\ScriptLib\GetOneLinkInheritedSrc.cpp" />
+    <ClCompile Include="NVScript\ScriptLib\GetParamBool.cpp" />
+    <ClCompile Include="NVScript\ScriptLib\GetParamFloat.cpp" />
+    <ClCompile Include="NVScript\ScriptLib\GetParamInt.cpp" />
+    <ClCompile Include="NVScript\ScriptLib\GetParamObject.cpp" />
+    <ClCompile Include="NVScript\ScriptLib\GetParamString.cpp" />
+    <ClCompile Include="NVScript\ScriptLib\GetParamTime.cpp" />
+    <ClCompile Include="NVScript\ScriptLib\GlobalParamCache.cpp" />
+    <ClCompile Include="NVScript\ScriptLib\HexTable.cpp" />
+    <ClCompile Include="NVScript\ScriptLib\IterateLinks.cpp" />
+    <ClCompile Include="NVScript\ScriptLib\IterateLinksByData.cpp" />
+    <ClCompile Include="NVScript\ScriptLib\MultiParmAssignFloat.cpp" />
+    <ClCompile Include="NVScript\ScriptLib\MultiParmAssignInt.cpp" />
+    <ClCompile Include="NVScript\ScriptLib\MultiParmAssignString.cpp" />
+    <ClCompile Include="NVScript\ScriptLib\MultiParmAssignVector.cpp" />
+    <ClCompile Include="NVScript\ScriptLib\ParamCache.cpp" />
+    <ClCompile Include="NVScript\ScriptLib\ParamExists.cpp" />
+    <ClCompile Include="NVScript\ScriptLib\ParamExistsDirect.cpp" />
+    <ClCompile Include="NVScript\ScriptLib\ParamGetBool.cpp" />
+    <ClCompile Include="NVScript\ScriptLib\ParamGetFloat.cpp" />
+    <ClCompile Include="NVScript\ScriptLib\ParamGetInt.cpp" />
+    <ClCompile Include="NVScript\ScriptLib\ParamGetObject.cpp" />
+    <ClCompile Include="NVScript\ScriptLib\ParamGetString.cpp" />
+    <ClCompile Include="NVScript\ScriptLib\ParamGetTime.cpp" />
+    <ClCompile Include="NVScript\ScriptLib\ParamRemove.cpp" />
+    <ClCompile Include="NVScript\ScriptLib\ParamSetBool.cpp" />
+    <ClCompile Include="NVScript\ScriptLib\ParamSetFloat.cpp" />
+    <ClCompile Include="NVScript\ScriptLib\ParamSetInt.cpp" />
+    <ClCompile Include="NVScript\ScriptLib\ParamSetString.cpp" />
+    <ClCompile Include="NVScript\ScriptLib\RemoveMetaProperty.cpp" />
+    <ClCompile Include="NVScript\ScriptLib\RemoveObjectParam.cpp" />
+    <ClCompile Include="NVScript\ScriptLib\RemoveSingleMetaProperty.cpp" />
+    <ClCompile Include="NVScript\ScriptLib\ScriptLib.cpp" />
+    <ClCompile Include="NVScript\ScriptLib\SetObjectParamBool.cpp" />
+    <ClCompile Include="NVScript\ScriptLib\SetObjectParamFloat.cpp" />
+    <ClCompile Include="NVScript\ScriptLib\SetObjectParamInt.cpp" />
+    <ClCompile Include="NVScript\ScriptLib\SetObjectParams.cpp" />
+    <ClCompile Include="NVScript\ScriptLib\SetObjectParamString.cpp" />
+    <ClCompile Include="NVScript\ScriptLib\SetParamBool.cpp" />
+    <ClCompile Include="NVScript\ScriptLib\SetParamFloat.cpp" />
+    <ClCompile Include="NVScript\ScriptLib\SetParamInt.cpp" />
+    <ClCompile Include="NVScript\ScriptLib\SetParamString.cpp" />
+    <ClCompile Include="NVScript\ScriptLib\ShowBook.cpp" />
+    <ClCompile Include="NVScript\ScriptLib\ShowString.cpp" />
+    <ClCompile Include="NVScript\ScriptLib\SimplePost.cpp" />
+    <ClCompile Include="NVScript\ScriptLib\SimpleSend.cpp" />
+    <ClCompile Include="NVScript\ScriptLib\strqsep.cpp" />
+    <ClCompile Include="NVScript\ScriptLib\strsep.cpp" />
+    <ClCompile Include="NVScript\ScriptLib\strtocolor.cpp" />
+    <ClCompile Include="NVScript\ScriptLib\StrToObject.cpp" />
+    <ClCompile Include="NVScript\ScriptLib\strtotime.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="NVScript\ScriptLib.h" />
+  </ItemGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
+  <ImportGroup Label="ExtensionTargets">
+  </ImportGroup>
+</Project>

@@ -1,0 +1,19 @@
+To build, open NVScript.sln in Visual Studio (2017 or later.)
+
+1) Change the configuration in the toolbar to one of:
+	Release		- Build for Thief 2
+	ReleaseSS2	- Build for System Shock 2
+	ReleaseT1	- Build for Thief: The Dark Project
+
+	(Debug builds likely won't work, as the file size tends to be larger than Dark will load)
+
+2) Click "Build"
+
+3) The script module will be built and copied into "output" folder.
+   NVDebug will also be built (but not copied into the output folder - find it in the relevant "Release" folder.)
+
+
+There are also old makefiles and batch scripts for building using G++ with a CygWin / MingW environment.
+I wouldn't recommend using them, as I have no idea if they still work.  They are provided purely for academic interest.
+
+

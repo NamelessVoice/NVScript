@@ -1,0 +1,3 @@
+cd NVScript
+cd NVScript
+echo make NVScript.osm {GAME=2} {BUILD=1} {DEBUG=}

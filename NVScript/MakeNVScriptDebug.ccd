@@ -1,0 +1,1 @@
+make -C ~/NVScript/NVScript NVScript.osm DEBUG=1

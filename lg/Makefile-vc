@@ -1,0 +1,73 @@
+# Makefile for lg library
+# MSVC++ 
+
+CPU=i386
+APPVER=4.0
+!include <win32.mak>
+
+srcdir = .
+
+DEFINES = -D_MT -DWINVER=0x0400 -D_WIN32_WINNT=0x0400 -DWIN32_LEAN_AND_MEAN
+
+LDFLAGS = -nologo $(dlllflags)
+LIBDIRS = 
+LIBS = ole32.lib oleaut32.lib uuid.lib $(baselibs)
+INCLUDES = -I. -I$(srcdir)
+CXXFLAGS = $(cflags) -nologo -W3 -wd4800 -TP -EHsc
+LIBFLAGS = -nologo
+
+!ifdef DEBUG
+CXXDEBUG = -MTd -Od -DDEBUG
+LDDEBUG = -DEBUG
+!else
+CXXDEBUG = -MT -Ox -G5 -DNDEBUG
+LDDEBUG = -RELEASE
+!endif
+
+LG_HEADERS = lg/actreact.h \
+	lg/ai.h \
+	lg/config.h \
+	lg/convict.h \
+	lg/defs.h \
+	lg/dynarray.h \
+	lg/dynarray.hpp \
+	lg/editor.h \
+	lg/gen.h \
+	lg/graphics.h \
+	lg/iiddef.h \
+	lg/iids.h \
+	lg/input.h \
+	lg/interface.h \
+	lg/links.h \
+	lg/malloc.h \
+	lg/miss16.h \
+	lg/objects.h \
+	lg/objstd.h \
+	lg/propdefs.h \
+	lg/properties.h \
+	lg/quest.h \
+	lg/res.h \
+	lg/script.h \
+	lg/scrmanagers.h \
+	lg/scrmsgs.h \
+	lg/scrservices.h \
+	lg/sound.h \
+	lg/tools.h \
+	lg/types.h \
+	lg/win.h
+
+LG_LIB = lg.lib
+LG_SRCS = lg.cpp scrmsgs.cpp iids.cpp
+LG_OBJS = lg.obj scrmsgs.obj iids.obj
+
+.cpp.obj:
+	$(cc) $(CXXFLAGS) $(CXXDEBUG) $(DEFINES) $(INCLUDES) -c $<
+
+ALL:	$(LG_LIB)
+
+clean:
+	del /q $(LG_OBJS)
+
+$(LG_LIB): $(LG_OBJS)
+	$(implib) $(libflags) -out:$@ $(LG_OBJS)
+

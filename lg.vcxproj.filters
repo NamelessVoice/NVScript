@@ -1,0 +1,126 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="Source Files">
+      <UniqueIdentifier>{4FC737F1-C7A5-4376-A066-2A32D752A2FF}</UniqueIdentifier>
+      <Extensions>cpp;c;cc;cxx;def;odl;idl;hpj;bat;asm;asmx</Extensions>
+    </Filter>
+    <Filter Include="Header Files">
+      <UniqueIdentifier>{93995380-89BD-4b04-88EB-625FBE52EBFB}</UniqueIdentifier>
+      <Extensions>h;hpp;hxx;hm;inl;inc;xsd</Extensions>
+    </Filter>
+    <Filter Include="Resource Files">
+      <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
+      <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav</Extensions>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="lg\iids.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="lg\lg.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="lg\scrmsgs.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="lg\lg\actreact.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="lg\lg\ai.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="lg\lg\config.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="lg\lg\convict.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="lg\lg\defs.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="lg\lg\dlgs.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="lg\lg\dynarray.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="lg\lg\dynarray.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="lg\lg\editor.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="lg\lg\gen.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="lg\lg\graphics.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="lg\lg\iiddef.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="lg\lg\iids.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="lg\lg\input.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="lg\lg\interface.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="lg\lg\links.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="lg\lg\malloc.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="lg\lg\miss16.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="lg\lg\objects.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="lg\lg\objstd.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="lg\lg\propdefs.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="lg\lg\properties.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="lg\lg\quest.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="lg\lg\res.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="lg\lg\script.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="lg\lg\scrmanagers.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="lg\lg\scrmsgs.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="lg\lg\scrservices.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="lg\lg\sound.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="lg\lg\tools.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="lg\lg\types.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="lg\lg\win.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+  </ItemGroup>
+</Project>

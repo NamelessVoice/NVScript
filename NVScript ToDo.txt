@@ -1,0 +1,6 @@
+Sort multiplayer support
+	check source for Tos' T2MP, ScriptHooks.cpp, line 69
+
+"Send Stim" message for NVConvEnhancer
+
+Built-in revert timer (for NVTrap scripts)

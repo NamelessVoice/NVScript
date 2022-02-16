@@ -1,0 +1,5 @@
+----- 2005/06/29
+ * Increased the number of dynamic lights for Night Vision effect from 9 to 17.
+ * Right-clicking now properly adjusts the 'Active/Inactive' text in the Settings window.
+ * Hardware is no longer turned off then on unless the settings are actually changed.
+ * Batteries are no longer used when power is already at maximum.

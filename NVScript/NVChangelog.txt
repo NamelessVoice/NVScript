@@ -1,0 +1,116 @@
+----- ToDo list
+ * Script to emulate a Tweq->Models with more than six models.
+ * NVLightCorona script?
+
+----- 2005/10/20
+ * Added NVQVarBase, NVTrapSetQVar and NVTrigQVar. (Not 100% tested yet)
+ * Moved SS2-only scripts to a separate file (NVScript-SS2.cpp, NVScript-SS2.h)
+ * Modified makefile so that it no longer tries to compile Citadel.osm for T2.
+ * Added random weigted link support to NVTrigger scripts. Added KillLinks param.
+ * Updated NVKeyRing to support multiple keyrings and a few other things.
+ * Added multiple part/item support for NVInvAssembly2.
+ * Added NVDeathCutscene (SS2 only).
+ * Added support for custom ghosting failed messages in NVGhostingFailed.
+ * Schemas now actually play in NVInvAssembly and NVInvAssembly2.
+ * Added NVCursedObj
+
+----- 2005/06/22
+ * Added NVEndTrap (SS2 only)
+ * Added NVInvAssembly2 (for inv->world tool frobs and the SS2 inventory system.)
+ * Added NVPutIntoContainers (this may still be a little buggy...?)
+ * Added NVRecalcTrap
+
+----- 2005/06/01
+ * Remembered the NVChangelog...
+ * Added NVAirlock
+ * Added NVComestible (SS2 only)
+ * Added NVDoosStartsOpen
+ * Added NVHolyH2OHack
+ * Added NVInvAssembly
+ * Added NVInvTransform
+ * Added NVItemGiver
+ * Added NVKeyringKey
+ * Added NVSpy (just a very simple message printer, since I needed a Spy for SS2)
+ * Added NVTrapConverse (Mainly for SS2)
+ * Fixed/named NVHPTrigger
+ * The following scripts are now supported in SS2: NVAirlock, NVCreateAndLink, NVItemGiver, NVLinkBuilder, NVOnscreenText, NVRelayTrap, NVScaleDims, NVTrapConverse, NVVOTrap, NVFrobToggle, NVHPTrigger, NVConvEnhancer (untested), NVGhostingMessages, NVIncapacitatedMessages, NVAttachMyObj, NVComestible (SS2 only), NVDoorStartsOpen, NVExclusiveObject, NVInvAssembly, NVInvTransform, NVTweqMessages (untested), NVThrowingKnife (undocumented), NVTurningSquare (undocumented).
+ * These scripts don't work in SS2: NVSuspiciousTrap, NVEmitWhileSelected
+ * These scripts are not applicable to SS2 (so untested): NVHolyH2OHack, NVInventoryMemory, NVKeyringKey, NVSafeDoor.
+ * NVDifficultyDebug has not been tested in SS2.
+ * No SS2 scripts have multiplayer support, except for possibly NVTurningSquare.
+ * Added NVMirrorHack (and NVMirrorImage). Unfinished, undocumented, and probably buggy. Still, I have some ideas for this in "The Circle of Flames".
+  
+----- 2005/05/01
+ * Added NVThrowingKnife
+ * Changed the argument order of the 'SendMessage' Conv Enhancer.
+ 
+----- 2005/03/22
+ * NVGenericTrigger: * now affects only direct descendants, while @ affects all descendants.
+ * Moved NVAttachMyObj and NVEmitWhileSelected back to the main NVScript files.
+ 
+----- 2005/03/16
+ * Added NVMoveOBB. (It doesn't really work. Maybe I'll delete it again...)
+ 
+----- 2005/03/15
+ * Added NVInventoryMemory.
+ * Added NVFirerHack.
+ * Moved TCP-specific scripts to separate files (NVScript-TCP.cpp, NVScript-TCP.h).
+ * Moved NVNewWeapon to separate files (NVScript-Flames.cpp, NVScript-Flames.h).
+ * Moved NVDifficultyDebug to separate script module; NVDebug.osm.
+ * Added NVFlammable (for "The Circle of Flames" - not useful for much else...)
+ 
+----- 2005/03/14
+ * Rewrote NVNewWeapon to use an object listener instead of all those timers.
+ 
+----- 2005/03/12
+ * Completely rewrote NVGenericScript; it now uses ReceiveMessage() directly. It first passes the message on to the main handler, and then it checks against the specified On and Off messages and triggers any appropriate functions. (I tried doing it the other way around, but it crashed.)
+ * Rewrote NVGenericTrigger. Params are no longer stored in member variables, but read each trigger (in case they are changed ingame).
+ * NVGenericTrigger: Added * and @ operators to TDest function to affect all objects that inherit from an archetype. (They both do the same thing...)
+ * Fixed a crash-to-desktop bug in NVVOTrap if you didn't specify a QVar.
+ 
+----- 2005/03/11
+ * Cleaned up source code.
+ * NVExclusiveObject now uses the Trait Manager (much more efficient).
+ 
+----- 2005/03/10
+ * Completely reworked the Follow and StopFollowing actions of NVConvEnhancer. It now works by setting the AI's idling origin as the destination's location. This works much better.
+ * NVScriptLib: Overloaded NVStrToObject function; it can now be passed the 'from' and 'to' objects explicitly.
+ * Finished NVSafeDoor by adding sound effects and the option to add an AIWatchObj from the frobbing AI to a specified object when opened. Fixed some bugs.
+ 
+----- 2005/03/09
+ * Added NVNewWeapon (for "The Circle of Flames").
+ 
+----- 2005/03/07
+ * Added NVSafeDoor.
+ 
+----- 2005/03/05
+ * Added Follow and StopFollowing actions to NVConvEnhancer. It doesn't work very well yet.
+ * All NVScripts now use the new inheritable Design Note param system.
+ * Fixed a memory leak in NVOnscreenText.
+ * NVScriptLib: Added GetDistance() and GetDistanceXY() functions.
+   
+----- 2005/03/04
+ * Added SendMessage action to NVConvEnhancer.
+ * NVGenericTrigger: Added random link functionality.
+ * NVRelayTrap now has NVRelayDelayMax param, allowing randomisation of delay time.
+ * NVRelayTrap now has NVRelayRepeat param, allowing it to fire more than once per trigger.
+ * Added NVOnscreenText.
+ * Added NVExclusiveObject. (But surely there is a more efficient way?)
+
+----- 2005/03/01
+ * NVFrobToggle is now an NVGenericTrigger. This changes its functionality. To use it the old way, use NVFrobToggleTDest="[Me]".
+ * NVGenericScript and NVGenericTrigger now use the new Params system.
+ * NVFrobToggle and NVEmitWhileSelected now use the new Params system.
+
+----- 2005/02/18
+ * lg/types.h: Further modified cScrVec type. Now supports operators with float arguments.
+ * Fixed a bug in NVTurningSquare that could make it trigger twice.
+ * Added NVVOTrap.
+
+----- 2005/02/18
+ * Added NVTweqMessages.
+
+----- 2005/02/15
+ * Added NVGenericTrigger base.
+ * Added NVRelayTrap, NVHPTrigger.
+ * NVGenericScript & NVGenericTrigger now use dynamically allocated strings.

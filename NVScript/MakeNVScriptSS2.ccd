@@ -1,0 +1,3 @@
+make -C ~/NVScript/NVScript NVDebug.osm GAMESUFFIX="-SS2" SSINCLUDEH="NVScript-SS2.h NVScript-ThiefShock.h" SSINCLUDEO="NVScript-SS2.o NVScript-ThiefShock.o" SSINCLUDEC="NVScript-SS2.cpp NVScript-ThiefShock.cpp" GAME=3
+make -C ~/NVScript/NVScript Citadel.osm GAMESUFFIX="-SS2" SSINCLUDEH="NVScript-SS2.h NVScript-ThiefShock.h" SSINCLUDEO="NVScript-SS2.o NVScript-ThiefShock.o" SSINCLUDEC="NVScript-SS2.cpp NVScript-ThiefShock.cpp" GAME=3
+make -C ~/NVScript/NVScript NVScript.osm GAMESUFFIX="-SS2" SSINCLUDEH="NVScript-SS2.h NVScript-ThiefShock.h" SSINCLUDEO="NVScript-SS2.o NVScript-ThiefShock.o" SSINCLUDEC="NVScript-SS2.cpp NVScript-ThiefShock.cpp" GAME=3

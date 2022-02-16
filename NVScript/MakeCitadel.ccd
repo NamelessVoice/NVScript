@@ -1,0 +1,1 @@
+make -C ~/NVScript/NVScript Citadel.osm GAMESUFFIX="-SS2" GAME=3

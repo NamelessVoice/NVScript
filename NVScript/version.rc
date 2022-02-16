@@ -1,0 +1,40 @@
+#include "windows.h"
+#ifdef _MSC_VER
+#include "..\buildconfig.h"
+#else
+#ifndef SCRIPT_COPYRIGHT
+#define SCRIPT_COPYRIGHT "Copyright (C) 2014 Nameless Voice"
+#endif
+#endif
+
+VS_VERSION_INFO VERSIONINFO
+FILEVERSION		SCRIPT_VERSION
+PRODUCTVERSION		SCRIPT_VERSION
+#if DEBUG
+FILEFLAGS		VS_FF_DEBUG
+#else
+FILEFLAGS		0
+#endif
+FILEOS			VOS_NT_WINDOWS32
+FILETYPE		VFT_DLL
+BEGIN
+	BLOCK "StringFileInfo"
+	BEGIN
+		BLOCK "040904e4"
+		BEGIN
+		//	VALUE	"CompanyName", "\0"
+			VALUE	"FileDescription", SCRIPT_LONGNAME "\0"
+			VALUE	"FileVersion", SCRIPT_VERSTRING "\0"
+			VALUE	"InternalName", SCRIPT_NAME "\0"
+			VALUE	"LegalCopyright", SCRIPT_COPYRIGHT "\0"
+			VALUE	"OriginalFilename", SCRIPT_NAME ".osm" "\0"
+		//	VALUE	"ProductName", "\0"
+		//	VALUE	"ProductVersion", "1.0" "\0"
+		END
+	END
+	BLOCK "VarFileInfo"
+	BEGIN
+		VALUE	"Translation", 1033, 1252
+	END
+END
+

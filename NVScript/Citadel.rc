@@ -1,0 +1,16 @@
+// The major version number will be incremented for each release that may break 
+// compatibility with older releases. If I feel confident that there won't
+// be any problems, I'll only increment the minor version.
+//
+// If you make your own modifications, please increase the revision or 
+// sub-revision levels. But leave the major and minor version numbers alone. 
+// You should also change the description to something else. Official releases
+// are labelled "NVScript Thief2 OSM"
+//
+#define SCRIPT_VERSION		1,0,0,0
+#define SCRIPT_VERSTRING	"1.0.0"
+#define SCRIPT_NAME			"Citadel Script Module"
+#define SCRIPT_LONGNAME		"Citadel System Shock 2 OSM"
+
+#include "version.rc"
+
