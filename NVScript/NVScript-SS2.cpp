@@ -1299,7 +1299,7 @@ public:
 				
 				if (m_iHandle == -2)
 				{
-					m_iHandle = pShockOverlay->CreateTOverlayItem(x, y, 128, 32, 127, TRUE);
+					m_iHandle = pShockOverlay->CreateTOverlayItem(x, y, 128, 32, 178, TRUE);
 				}
 
 				if (pShockOverlay->BeginTOverlayUpdate(m_iHandle))

@@ -26,7 +26,7 @@ float ParamGetFloat(int iObject, const char* pszParam, float fDefault)
 	}
 	else
 	{
-		return strtod(psParam->c_str(), NULL);
+		return strtof(psParam->c_str(), NULL);
 	}
 	return fDefault;
 }

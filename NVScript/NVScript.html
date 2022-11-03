@@ -1230,8 +1230,10 @@ You can specify the time, in milliseconds, that the text is displayed via the <k
 
 
 <h1><a name="NVTweqDevice" id="NVTweqDevice"></a>NVTweqDevice  <i> (NVTrap)</i></h1> 
-<p>On <u>TurnOn</u>, this script activates its object's tweqs in a Forwards direction and plays schemas with tags <i>Event Activate</i>.<br/>
-On <u>TurnOff</u>, it activates its object's tweqs in a Reverse direction and plays schemas with tags<i>Event Deactivate</i>.</p> 
+<p>On <u>TurnOn</u>, this script activates its object's joints tweq in a Forwards direction and plays schemas with tags <i>Event Activate</i>.<br/>
+On <u>TurnOff</u>, it activates its object's joints tweq in a Reverse direction and plays schemas with tags<i>Event Deactivate</i>.</p> 
+<p>It will generally only operate on the primary joint; to control more than one joint, specify each of the joints to control with <kbd>NVTweqDeviceControlJoint#=1</kbd>, where # is the joint number.<br/>
+For example, to control joints 1 and 2, use <kbd>NVTweqDeviceControlJoint1=1; NVTweqDeviceControlJoint2=1</kbd></p>
 
 <h1><a name="NVSuspiciousTrap" id="NVSuspiciousTrap"></a>NVSuspiciousTrap <i>(NVTrap)</i><br/>
 <b>Not available for System Shock 2.</b></h1> 
@@ -2211,6 +2213,11 @@ As of the complete rewrite of this script in v1.0.8, the arrows <i>will</i> beco
 
 
 <h2><a name="VersionHistory"></a>- Version History -</h2>
+<h1>v1.3.0</h1>
+<ul>
+	<li>Source code now on GitHub.</li>
+	<li>A few minor bugfixes and documentation updates.</li>
+</ul>
 <h1>v1.2.9</h1>
 <ul>
 	<li>Added full source code.</li>

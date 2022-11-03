@@ -18,7 +18,7 @@ long __stdcall cScrNVGeneric::ReceiveMessage(sScrMsg* pMsg, sMultiParm* pReply, 
 		if (!stricmp(pMsg->message, "BeginScript")) {
 			InitGenericVars();
 		}
-		
+
 		// Call parent ReceiveMessage:
 		iRet = cScript::ReceiveMessage(pMsg, pReply, eTrace);
 		
@@ -37,7 +37,13 @@ long __stdcall cScrNVGeneric::ReceiveMessage(sScrMsg* pMsg, sMultiParm* pReply, 
 //			return iRet;
 		}
 */
-	
+
+		if (!stricmp(pMsg->message, "Sim")) {
+			if (!static_cast<sSimMsg*>(pMsg)->fStarting) {
+				return iRet;
+			}
+		}
+
 		char* pszParam = new char[strlen(m_szName) + 4];
 			sprintf(pszParam, "%sOn", m_szName);
 			const char* pszMessageOn = ParamGetString(m_iObjId, pszParam, "TurnOn");

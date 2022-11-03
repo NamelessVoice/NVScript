@@ -1632,25 +1632,22 @@ MSGHANDLER cScr_NVLookAtNoises::OnTimer(sScrMsg* pMsg, sMultiParm* pReply, eScrT
 MSGHANDLER cScr_NVIncapacitatedMessages::OnDamage(sScrMsg* pMsg, sMultiParm* pReply, eScrTraceAction eTrace)
 {
 
-	if ( !m_iIncap )
-	{
-		SService<IPropertySrv> pPropSrv(g_pScriptManager);
-		if (pPropSrv->Possessed(m_iObjId, "AI_Mode"))
-		{ // Just in case the object doesn't have the AI->State->Current Mode property...
-			cMultiParm mpMode;
-			pPropSrv->Get(mpMode, m_iObjId, "AI_Mode", NULL);
-			int iMode = static_cast<int>(mpMode);
+	SService<IPropertySrv> pPropSrv(g_pScriptManager);
+	if (pPropSrv->Possessed(m_iObjId, "AI_Mode"))
+	{ // Just in case the object doesn't have the AI->State->Current Mode property...
+		cMultiParm mpMode;
+		pPropSrv->Get(mpMode, m_iObjId, "AI_Mode", NULL);
+		int iMode = static_cast<int>(mpMode);
 
-			if ( iMode == 5 ) // Mode is 'dead' (also used for KOed people)
-			{
-				sScrMsg msg;
-				msg.from = pMsg->from;
-				msg.to = m_iObjId;
-				msg.time = pMsg->time;
-				msg.flags = pMsg->flags; // No one knows what this means.
-				msg.message = "Incapacitated";
-				g_pScriptManager->SendMessage(&msg, pReply);
-			}
+		if ( iMode == 5 ) // Mode is 'dead' (also used for KOed people)
+		{
+			sScrMsg msg;
+			msg.from = pMsg->from;
+			msg.to = m_iObjId;
+			msg.time = pMsg->time;
+			msg.flags = pMsg->flags; // No one knows what this means.
+			msg.message = "Incapacitated";
+			g_pScriptManager->SendMessage(&msg, pReply);
 		}
 	}
 
