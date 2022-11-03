@@ -30,40 +30,40 @@
     <ProjectGuid>{8DA3AF8E-7C62-41D4-99C3-BF2ED005E187}</ProjectGuid>
     <RootNamespace>NVScript</RootNamespace>
     <Keyword>Win32Proj</Keyword>
-    <WindowsTargetPlatformVersion>8.1</WindowsTargetPlatformVersion>
+    <WindowsTargetPlatformVersion>10.0</WindowsTargetPlatformVersion>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='ReleaseT1|Win32'" Label="Configuration">
     <ConfigurationType>DynamicLibrary</ConfigurationType>
-    <PlatformToolset>v141</PlatformToolset>
+    <PlatformToolset>v143</PlatformToolset>
     <CharacterSet>MultiByte</CharacterSet>
     <WholeProgramOptimization>true</WholeProgramOptimization>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='DebugT1|Win32'" Label="Configuration">
     <ConfigurationType>DynamicLibrary</ConfigurationType>
-    <PlatformToolset>v141</PlatformToolset>
+    <PlatformToolset>v143</PlatformToolset>
     <CharacterSet>MultiByte</CharacterSet>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='ReleaseSS2|Win32'" Label="Configuration">
     <ConfigurationType>DynamicLibrary</ConfigurationType>
-    <PlatformToolset>v141</PlatformToolset>
+    <PlatformToolset>v143</PlatformToolset>
     <CharacterSet>MultiByte</CharacterSet>
     <WholeProgramOptimization>true</WholeProgramOptimization>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='DebugSS2|Win32'" Label="Configuration">
     <ConfigurationType>DynamicLibrary</ConfigurationType>
-    <PlatformToolset>v141</PlatformToolset>
+    <PlatformToolset>v143</PlatformToolset>
     <CharacterSet>MultiByte</CharacterSet>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="Configuration">
     <ConfigurationType>DynamicLibrary</ConfigurationType>
-    <PlatformToolset>v141</PlatformToolset>
+    <PlatformToolset>v143</PlatformToolset>
     <CharacterSet>MultiByte</CharacterSet>
     <WholeProgramOptimization>true</WholeProgramOptimization>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
     <ConfigurationType>DynamicLibrary</ConfigurationType>
-    <PlatformToolset>v141</PlatformToolset>
+    <PlatformToolset>v143</PlatformToolset>
     <CharacterSet>MultiByte</CharacterSet>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
@@ -180,15 +180,10 @@
       <TargetMachine>MachineX86</TargetMachine>
     </Link>
     <PostBuildEvent>
-      <Command>echo Preparing output directory
-rmdir /s /q output 2&gt;nul &gt;nul
-mkdir output
-copy "$(TargetPath)" output
-copy "NVScript\NVScript.html" output &gt; nul
+      <Command>copy NVScript\NVScript.html $(TargetDir)
 
 echo Deploying...
-call Deploy-T2.cmd
-</Command>
+call Deploy-T2.cmd</Command>
     </PostBuildEvent>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='DebugSS2|Win32'">
@@ -215,7 +210,8 @@ call Deploy-T2.cmd
       <TargetMachine>MachineX86</TargetMachine>
     </Link>
     <PostBuildEvent>
-      <Command />
+      <Command>
+      </Command>
     </PostBuildEvent>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='ReleaseSS2|Win32'">
@@ -244,11 +240,12 @@ call Deploy-T2.cmd
       <TargetMachine>MachineX86</TargetMachine>
     </Link>
     <PostBuildEvent>
-      <Command>echo Preparing output directory
-rmdir /s /q output 2&gt;nul &gt;nul
-mkdir output
-copy "$(TargetPath)" output
-copy "NVScript\NVScript.html" output &gt; nul
+      <Command>copy NVScript\NVScript.html $(TargetDir)
+
+powershell -command "(Get-Content -path ReleaseSS2\NVScript\NVScript.html -Raw).replace('/*T2Version-Start*/','/*T2Version-Start') | Set-Content -Path ReleaseSS2\NVScript\NVScript.html"
+powershell -command "(Get-Content -path ReleaseSS2\NVScript\NVScript.html -Raw).replace('/*T2Version-End*/','T2Version-End*/') | Set-Content -Path ReleaseSS2\NVScript\NVScript.html"
+powershell -command "(Get-Content -path ReleaseSS2\NVScript\NVScript.html -Raw).replace('/*SS2Version-Start','/*SS2Version-Start*/') | Set-Content -Path ReleaseSS2\NVScript\NVScript.html"
+powershell -command "(Get-Content -path ReleaseSS2\NVScript\NVScript.html -Raw).replace('SS2Version-End*/','/*SS2Version-End*/') | Set-Content -Path ReleaseSS2\NVScript\NVScript.html"
 
 echo Deploying...
 call Deploy-SS2.cmd</Command>
@@ -278,7 +275,8 @@ call Deploy-SS2.cmd</Command>
       <TargetMachine>MachineX86</TargetMachine>
     </Link>
     <PostBuildEvent>
-      <Command />
+      <Command>
+      </Command>
     </PostBuildEvent>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='ReleaseT1|Win32'">
@@ -307,15 +305,10 @@ call Deploy-SS2.cmd</Command>
       <TargetMachine>MachineX86</TargetMachine>
     </Link>
     <PostBuildEvent>
-      <Command>echo Preparing output directory
-rmdir /s /q output 2&gt;nul &gt;nul
-mkdir output
-copy "$(TargetPath)" output
-copy "NVScript\NVScript.html" output &gt; nul
+      <Command>copy NVScript\NVScript.html $(TargetDir)
 
 echo Deploying...
-call Deploy-T1.cmd
-</Command>
+call Deploy-T1.cmd</Command>
     </PostBuildEvent>
   </ItemDefinitionGroup>
   <ItemGroup>

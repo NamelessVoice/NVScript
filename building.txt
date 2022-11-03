@@ -9,8 +9,11 @@ To build, open NVScript.sln in Visual Studio (2017 or later.)
 
 2) Click "Build"
 
-3) The script module will be built and copied into "output" folder.
-   NVDebug will also be built (but not copied into the output folder - find it in the relevant "Release" folder.)
+3) The script module will be built into the relevant Release folder.
+   NVDebug will also be built - find it in the relevant "Release" folder.
+
+4) The relevant Deploy script will be run after the build has completed (Deploy-T2.cmd, Deploy-SS2.cmd, Deploy-T1);
+   these can be set up to automatically copy the created files to wherever they are needed, edit as needed.
 
 
 There are also old makefiles and batch scripts for building using G++ with a CygWin / MingW environment.

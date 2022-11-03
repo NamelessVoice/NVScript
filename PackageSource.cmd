@@ -10,13 +10,7 @@ if exist output/NVScript-source.zip rm -rf output/source.zip
 
 rsync -t -r --exclude-from=.gitignore --exclude=output/source --exclude=.git . output/source
 
-REM Create "Deploy" scripts (can be used to copy the built artefacts somewhere)
-echo REM This file is run when NVScript for T2 is built successfully > output/source/Deploy-T2.cmd
-echo REM This file is run when NVScript for T1 is built successfully > output/source/Deploy-T1.cmd
-echo REM This file is run when NVScript for SS2 is built successfully > output/source/Deploy-SS2.cmd
-
-
-rem echo Zipping source code
+rem echo Zipping source code (disabled, as the deploy scripts should put it into the main script zip)
 rem "7z.exe" a "output/NVScript-source.zip" "./output/source/*" -tzip -mx9 > NUL
 
 echo Source code packaging completed
