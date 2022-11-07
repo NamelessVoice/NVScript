@@ -237,7 +237,12 @@
       <TargetMachine>MachineX86</TargetMachine>
     </Link>
     <PostBuildEvent>
-      <Command>copy NVScript\NVScript.html $(TargetDir)</Command>
+      <Command>copy NVScript\NVScript.html $(TargetDir)
+
+powershell -command "(Get-Content -path ReleaseSS2\NVScript\NVScript.html -Raw).replace('/*T2Version-Start*/','/*T2Version-Start') | Set-Content -Path ReleaseSS2\NVScript\NVScript.html"
+powershell -command "(Get-Content -path ReleaseSS2\NVScript\NVScript.html -Raw).replace('/*T2Version-End*/','T2Version-End*/') | Set-Content -Path ReleaseSS2\NVScript\NVScript.html"
+powershell -command "(Get-Content -path ReleaseSS2\NVScript\NVScript.html -Raw).replace('/*SS2Version-Start','/*SS2Version-Start*/') | Set-Content -Path ReleaseSS2\NVScript\NVScript.html"
+powershell -command "(Get-Content -path ReleaseSS2\NVScript\NVScript.html -Raw).replace('SS2Version-End*/','/*SS2Version-End*/') | Set-Content -Path ReleaseSS2\NVScript\NVScript.html"</Command>
     </PostBuildEvent>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='DebugT1|Win32'">
