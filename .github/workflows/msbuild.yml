@@ -1,0 +1,51 @@
+name: MSBuild
+
+on:
+  push:
+    branches: [ "master" ]
+  pull_request:
+    branches: [ "master" ]
+
+env:
+  # Path to the solution file relative to the root of the project.
+  SOLUTION_FILE_PATH: NVScript.sln
+
+permissions:
+  contents: read
+
+jobs:
+  build:
+    runs-on: windows-latest
+    
+    strategy:
+      matrix:
+        include:
+          - BUILD_NAME: NVScript-T2
+            BUILD_CONFIGURATION: Release
+          - BUILD_NAME: NVScript-T1
+            BUILD_CONFIGURATION: ReleaseT1
+          - BUILD_NAME: NVScript-SS2
+            BUILD_CONFIGURATION: ReleaseSS2
+
+    steps:
+    - uses: actions/checkout@v3
+
+    - name: Add MSBuild to PATH
+      uses: microsoft/setup-msbuild@v1.1.3
+
+    - name: Restore NuGet packages
+      working-directory: ${{env.GITHUB_WORKSPACE}}
+      run: nuget restore ${{env.SOLUTION_FILE_PATH}}
+
+    - name: Build
+      working-directory: ${{env.GITHUB_WORKSPACE}}
+      # Add additional options to the MSBuild command line here (like platform or verbosity level).
+      # See https://docs.microsoft.com/visualstudio/msbuild/msbuild-command-line-reference
+      run: msbuild /m /p:Configuration=${{matrix.BUILD_CONFIGURATION}} ${{env.SOLUTION_FILE_PATH}}
+
+    - uses: actions/upload-artifact@v3
+      with:
+        name: ${{matrix.BUILD_NAME}}
+        path: |
+          D:\a\nvscript\nvscript\${{matrix.BUILD_CONFIGURATION}}\NVScript\NVScript.osm
+          D:\a\nvscript\nvscript\${{matrix.BUILD_CONFIGURATION}}\NVScript\NVScript.html
