@@ -24,8 +24,13 @@ jobs:
     
     strategy:
       matrix:
-        BUILD_NAME: [NVScript-T2, NVScript-T1, NVScript-SS2]
-        BUILD_CONFIGURATION: [Release, ReleaseT1, ReleaseSS2]
+        include:
+          - BUILD_NAME: NVScript-T2
+            BUILD_CONFIGURATION: Release
+          - BUILD_NAME: NVScript-T1
+            BUILD_CONFIGURATION: ReleaseT1
+          - BUILD_NAME: NVScript-SS2
+            BUILD_CONFIGURATION: ReleaseSS2
 
     steps:
     - uses: actions/checkout@v3
