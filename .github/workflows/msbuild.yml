@@ -24,6 +24,7 @@ jobs:
     
     strategy:
       matrix:
+        BUILD_NAME: [NVScript-T2, NVScript-T1, NVScript-SS2]
         BUILD_CONFIGURATION: [Release, ReleaseT1, ReleaseSS2]
 
     steps:
@@ -44,21 +45,7 @@ jobs:
 
     - uses: actions/upload-artifact@v3
       with:
-        name: NVScript-T2
+        name: ${{matrix.BUILD_NAME}}
         path: |
-          D:\a\nvscript\nvscript\Release\NVScript\NVScript.osm
-          D:\a\nvscript\nvscript\NVScript.html
-
-    - uses: actions/upload-artifact@v3
-      with:
-        name: NVScript-SS2
-        path: |
-          D:\a\nvscript\nvscript\ReleaseSS2\NVScript\NVScript.osm
-          D:\a\nvscript\nvscript\NVScript.html
-
-    - uses: actions/upload-artifact@v3
-      with:
-        name: NVScript-T1
-        path: |
-          D:\a\nvscript\nvscript\ReleaseT1\NVScript\NVScript.osm
+          D:\a\nvscript\nvscript\${{matrix.BUILD_CONFIGURATION}}\NVScript\NVScript.osm
           D:\a\nvscript\nvscript\NVScript.html
