@@ -48,4 +48,4 @@ jobs:
         name: ${{matrix.BUILD_NAME}}
         path: |
           D:\a\nvscript\nvscript\${{matrix.BUILD_CONFIGURATION}}\NVScript\NVScript.osm
-          D:\a\nvscript\nvscript\NVScript.html
+          D:\a\nvscript\nvscript\${{matrix.BUILD_CONFIGURATION}}\NVScript\NVScript.html
