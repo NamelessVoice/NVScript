@@ -24,7 +24,7 @@ jobs:
     
     strategy:
       matrix:
-        BUILD_CONFIGURATION: [Release, Release-T2, Release-SS2]
+        BUILD_CONFIGURATION: [Release, ReleaseT1, ReleaseSS2]
 
     steps:
     - uses: actions/checkout@v3
