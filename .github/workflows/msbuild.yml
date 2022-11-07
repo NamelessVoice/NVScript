@@ -53,12 +53,12 @@ jobs:
       with:
         name: NVScript-SS2
         path: |
-          D:\a\nvscript\nvscript\Release-SS2\NVScript\NVScript.osm
+          D:\a\nvscript\nvscript\ReleaseSS2\NVScript\NVScript.osm
           D:\a\nvscript\nvscript\NVScript.html
 
     - uses: actions/upload-artifact@v3
       with:
         name: NVScript-T1
         path: |
-          D:\a\nvscript\nvscript\Release-T1\NVScript\NVScript.osm
+          D:\a\nvscript\nvscript\ReleaseT1\NVScript\NVScript.osm
           D:\a\nvscript\nvscript\NVScript.html
