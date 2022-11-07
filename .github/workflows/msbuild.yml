@@ -21,6 +21,10 @@ permissions:
 jobs:
   build:
     runs-on: windows-latest
+    
+    strategy:
+      matrix:
+        BUILD_CONFIGURATION: [Release, Release-T2, Release-SS2]
 
     steps:
     - uses: actions/checkout@v3
@@ -36,9 +40,25 @@ jobs:
       working-directory: ${{env.GITHUB_WORKSPACE}}
       # Add additional options to the MSBuild command line here (like platform or verbosity level).
       # See https://docs.microsoft.com/visualstudio/msbuild/msbuild-command-line-reference
-      run: msbuild /m /p:Configuration=${{env.BUILD_CONFIGURATION}} ${{env.SOLUTION_FILE_PATH}}
+      run: msbuild /m /p:Configuration=${{matrix.BUILD_CONFIGURATION}} ${{env.SOLUTION_FILE_PATH}}
 
     - uses: actions/upload-artifact@v3
       with:
-        name: NVScript.osm
-        path: D:\a\nvscript\nvscript\Release\NVScript\NVScript.osm
+        name: NVScript-T2
+        path: |
+          D:\a\nvscript\nvscript\Release\NVScript\NVScript.osm
+          D:\a\nvscript\nvscript\NVScript.html
+
+    - uses: actions/upload-artifact@v3
+      with:
+        name: NVScript-SS2
+        path: |
+          D:\a\nvscript\nvscript\Release-SS2\NVScript\NVScript.osm
+          D:\a\nvscript\nvscript\NVScript.html
+
+    - uses: actions/upload-artifact@v3
+      with:
+        name: NVScript-T1
+        path: |
+          D:\a\nvscript\nvscript\Release-T1\NVScript\NVScript.osm
+          D:\a\nvscript\nvscript\NVScript.html
