@@ -237,14 +237,8 @@
       <TargetMachine>MachineX86</TargetMachine>
     </Link>
     <PostBuildEvent>
-      <Command>echo Preparing output directory
-rmdir /s /q output 2&gt;nul &gt;nul
-mkdir output
-copy "$(TargetPath)" output
-copy "NVScript\NVScript.html" output &gt; nul
-
-echo Deploying...
-call Deploy-SS2.cmd</Command>
+      <Command>
+      </Command>
     </PostBuildEvent>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='DebugT1|Win32'">
@@ -300,15 +294,8 @@ call Deploy-SS2.cmd</Command>
       <TargetMachine>MachineX86</TargetMachine>
     </Link>
     <PostBuildEvent>
-      <Command>echo Preparing output directory
-rmdir /s /q output 2&gt;nul &gt;nul
-mkdir output
-copy "$(TargetPath)" output
-copy "NVScript\NVScript.html" output &gt; nul
-
-echo Deploying...
-call Deploy-T1.cmd
-</Command>
+      <Command>
+      </Command>
     </PostBuildEvent>
   </ItemDefinitionGroup>
   <ItemGroup>
