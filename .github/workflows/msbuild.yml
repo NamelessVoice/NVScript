@@ -41,4 +41,4 @@ jobs:
     - uses: actions/upload-artifact@v3
       with:
         name: NVScript.osm
-        path: nvscript/nvscript/Release/NVDebug/NVDebug.osm
+        path: D:\a\nvscript\nvscript\Release\NVScript\NVScript.osm
