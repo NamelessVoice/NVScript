@@ -7,8 +7,8 @@
 // You should also change the description to something else. Official releases
 // are labelled "NVScript Thief2 OSM"
 //
-#define SCRIPT_VERSION		1,2,9,0
-#define SCRIPT_VERSTRING	"1.2.9"
+#define SCRIPT_VERSION		1,3,0,0
+#define SCRIPT_VERSTRING	"1.3.0"
 #define SCRIPT_NAME			"NVScript Script Module"
 #define SCRIPT_LONGNAME		"NVScript Thief2 OSM"
 

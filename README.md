@@ -74,22 +74,22 @@ In addition, you can affect all objects within a specific radius. First enter a 
 
 Below is a table with examples of each way that objects can be targeted:
 
-| Parameter value | Object(s) to target | Applies to |
-| --------------- | ------------------- | ---------- |
-| ObjectName      | A specific object named *ObjectName*. | Any parameter specifying an object. |
-| 245             | A specific object with ID *245*. | Any parameter specifying an object. |
-| [me]            | This object where the script is running. | Any parameter specifying an object. |
-| [source]        | The source of the message that triggered this script. | Any parameter specifying an object. |
-| ^Marker         | The closest object (relative to the object running the script) that descends from the Marker archetype. | Any parameter specifying an object. |
-| ^<20:Marker     |	The closest object (relative to the object running the script) that descends from the Marker archetype and is within 20 units (XY axis only). | Any parameter specifying an object. |
-|^{20:Marker      | The closest object (relative to the object running the script) that descends from the Marker archetype and is within 20 units (3-dimensional space). | Any parameter specifying an object. |
-| &ControlDevice  | All objects that this object has ControlDevice links to. | An NVTrigger script's TDest |
-| &?ControlDevice | One random object that this object has a ControlDevice link to. The link to that object will be removed afterwards if `[ScriptName]KillLinks=1` | An NVTrigger script's TDest |
-| &Weighted       |	One random object that this object has a ScriptParams link to. The link is using a weighted random using the value of the ScriptParams link, with a link with a value of 2 being twice as likely to be chosen as one with a value of 1. | An NVTrigger script's TDest |
-| *Marker         | Every object in the mission that is based on the Marker archetype. | An NVTrigger script's TDest |
-| @Marker         | Every object in the mission that is based on the Marker archetype or one of its descendants. | An NVTrigger script's TDest |
-| <20:Marker      | Every object within 20 units (horizontal distance only) that is based on the Marker archetype or one of its descendants. | An NVTrigger script's TDest |
-| {20:Marker      |	Every object within 20 units (in all three dimensions) that is based on the Marker archetype or one of its descendants. | An NVTrigger script's TDest |
+| Parameter value | Object(s) to target                                                                                                                                                                                                                       | Applies to                          |
+| --------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ----------------------------------- |
+| ObjectName      | A specific object named *ObjectName*.                                                                                                                                                                                                     | Any parameter specifying an object. |
+| 245             | A specific object with ID *245*.                                                                                                                                                                                                          | Any parameter specifying an object. |
+| [me]            | This object where the script is running.                                                                                                                                                                                                  | Any parameter specifying an object. |
+| [source]        | The source of the message that triggered this script.                                                                                                                                                                                     | Any parameter specifying an object. |
+| ^Marker         | The closest object (relative to the object running the script) that descends from the Marker archetype.                                                                                                                                   | Any parameter specifying an object. |
+| ^<20:Marker     | The closest object (relative to the object running the script) that descends from the Marker archetype and is within 20 units (XY axis only).                                                                                             | Any parameter specifying an object. |
+|^{20:Marker      | The closest object (relative to the object running the script) that descends from the Marker archetype and is within 20 units (3-dimensional space).                                                                                      | Any parameter specifying an object. |
+| &ControlDevice  | All objects that this object has ControlDevice links to.                                                                                                                                                                                  | An NVTrigger script's TDest         |
+| &?ControlDevice | One random object that this object has a ControlDevice link to. The link to that object will be removed afterwards if `[ScriptName]KillLinks=1`                                                                                           | An NVTrigger script's TDest         |
+| &Weighted       | One random object that this object has a ScriptParams link to. The link is using a weighted random using the value of the ScriptParams link, with a link with a value of 2 being twice as likely to be chosen as one with a value of 1.   | An NVTrigger script's TDest         |
+| *Marker         | Every object in the mission that is based on the Marker archetype.                                                                                                                                                                        | An NVTrigger script's TDest         |
+| @Marker         | Every object in the mission that is based on the Marker archetype or one of its descendants.                                                                                                                                              | An NVTrigger script's TDest         |
+| <20:Marker      | Every object within 20 units (horizontal distance only) that is based on the Marker archetype or one of its descendants.                                                                                                                  | An NVTrigger script's TDest         |
+| {20:Marker      | Every object within 20 units (in all three dimensions) that is based on the Marker archetype or one of its descendants.                                                                                                                   | An NVTrigger script's TDest         |
 
 ## Targetting scripts
 Some scripts allow you to specify the object(s) that they should affect. You can do this via the `[ScriptName]Target` parameter, which generally defaults to `[me]` in most cases. For example, to have NVMetaTrap add and remove its metaproperty on objects linked from its object via ControlDevice links, you would use `NVMetaTrapTarget="&ControlDevice"`. Scripts which can be targetted in this way are marked as Targetable in their description. 

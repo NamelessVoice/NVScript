@@ -21,8 +21,8 @@
 
 #ifdef MODULE_NVSCRIPT
 // NVScript version defines
-#define SCRIPT_VERSION		1,2,8,0
-#define SCRIPT_VERSTRING	"1.2.8"
+#define SCRIPT_VERSION		1,3,0,0
+#define SCRIPT_VERSTRING	"1.3.0"
 #define SCRIPT_NAME			"NVScript Script Module"
 #define SCRIPT_LONGNAME		"NVScript " GAMENAME " OSM"
 #define SCRIPT_COPYRIGHT	"Copyright (C) 2022 Nameless Voice"
