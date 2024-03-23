@@ -1464,6 +1464,7 @@ void __stdcall cScr_NVPlayerScript::ListenFunc(sPropertyListenMsg* sMsg, PropLis
 				{
 //					DisplayPrintf("Gained trait: %i", pTraits->iTraits[i]);
 					char szParam[16];
+
 					sprintf(szParam, "NVTrait%iMeta", pTraits->iTraits[i]);
 					int iMeta = ParamGetObject(iObjId, szParam, 0);
 					if ( iMeta)
@@ -1486,8 +1487,12 @@ void __stdcall cScr_NVPlayerScript::ListenFunc(sPropertyListenMsg* sMsg, PropLis
 					{
 						g_pScriptManager->SetTimedMessage2(iObjId, "AddTraitXP", 100, kSTM_OneShot, iXP);
 					}
-					
+
 					ParamSetInt(iObjId, szTraitParam, pTraits->iTraits[i]);
+
+					sprintf(szParam, "GainedTrait%i", pTraits->iTraits[i]);
+					SimplePost(iObjId, iObjId, szParam);
+
 					pSelf->StopListener();
 					pSelf->StartListener();
 				}
@@ -1648,7 +1653,7 @@ MSGHANDLER cScr_NVPlayerScript::OnTimer(sScrMsg* pMsg, sMultiParm* pReply, eScrT
 			} else {
 				iXP = 0;
 			}
-			pPropSrv->Set(oXP, "ExP", NULL, iXP);	
+			pPropSrv->Set(oXP, "ExP", NULL, iXP);
 		}
 	
 	
@@ -1809,7 +1814,7 @@ MSGHANDLER cScr_NVSecurityComputer::OnFrob(sScrMsg* pMsg, sMultiParm* pReply, eS
 
 MSGHANDLER cScr_NVSecurityComputer::OnHackSuccess(sScrMsg* pMsg, sMultiParm* pReply, eScrTraceAction eTrace)
 {
-	SService<IShockGameSrv> pShockGame(g_pScriptManager);	
+	SService<IShockGameSrv> pShockGame(g_pScriptManager);
 	SService<IPropertySrv> pPropSrv(g_pScriptManager);
 	SService<ISoundScrSrv> pSoundSrv(g_pScriptManager);
 	SService<INetworkingSrv> pNetwork(g_pScriptManager);
@@ -1823,10 +1828,9 @@ MSGHANDLER cScr_NVSecurityComputer::OnHackSuccess(sScrMsg* pMsg, sMultiParm* pRe
     pPropSrv->SetSimple(oPlayer, "HackVisi", 0);
 	pShockGame->RecalcStats(oPlayer);
 	pShockGame->OverlayChange(29, 1);
-	
-	
-	pSoundSrv->PlaySchemaAmbient(bReturn, m_iObjId, StrToObject("xer01"), kSoundNetwork0);
-	
+
+	pSoundSrv->PlaySchemaAmbient(bReturn, m_iObjId, ParamGetNVObject(m_iObjId, "NVSecurityComputerHackedSchema", StrToObject("xer01")), kSoundNetwork0);
+
 	cMultiParm mpProp;
 			
 	int iHackTime = 0;
@@ -1849,21 +1853,21 @@ MSGHANDLER cScr_NVSecurityComputer::OnHackSuccess(sScrMsg* pMsg, sMultiParm* pRe
 
 MSGHANDLER cScr_NVSecurityComputer::OnNetHackSuccess(sScrMsg* pMsg, sMultiParm* pReply, eScrTraceAction eTrace)
 {
-	SService<IShockGameSrv> pShockGame(g_pScriptManager);	
+	SService<IShockGameSrv> pShockGame(g_pScriptManager);
 	SService<IPropertySrv> pPropSrv(g_pScriptManager);
 	SService<ISoundScrSrv> pSoundSrv(g_pScriptManager);
 	SService<INetworkingSrv> pNetwork(g_pScriptManager);
 	true_bool bReturn;
-	
-	
+
+
 	object oPlayer = StrToObject("Player");
     pPropSrv->SetSimple(oPlayer, "HackVisi", 0);
 	pShockGame->RecalcStats(oPlayer);
 	pShockGame->OverlayChange(29, 1);
+
+	pSoundSrv->PlaySchemaAmbient(bReturn, m_iObjId, ParamGetNVObject(m_iObjId, "NVSecurityComputerHackedSchema", StrToObject("xer01")), kSoundNetwork0);
+	pPropSrv->Set(oPlayer, "HackTime", NULL, static_cast<int>(pMsg->data) + pShockGame->SimTime());
 	
-	pSoundSrv->PlaySchemaAmbient(bReturn, m_iObjId, StrToObject("xer01"), kSoundNetwork0);
-    pPropSrv->Set(oPlayer, "HackTime", NULL, static_cast<int>(pMsg->data) + pShockGame->SimTime());
-    
 	return 0;
 }
 
@@ -2773,9 +2777,9 @@ MSGHANDLER cScr_NVIrradiator::OnTimer(sScrMsg* pMsg, sMultiParm* pReply, eScrTra
 		if ( fRadiation > 0.00f )
 		{
 			if (ParamExists(m_iObjId, "NVRadFadeTime"))
-		{
+			{
 				SService<IShockGameSrv> pShockGame(g_pScriptManager);
-					pShockGame->StartFadeIn(ParamGetInt(m_iObjId, "NVRadFadeTime", 500), ParamGetInt(m_iObjId, "NVRadFadeRed", 0), ParamGetInt(	m_iObjId, "NVRadFadeGreen", 255), ParamGetInt(m_iObjId, "NVRadFadeBlue", 0));
+				pShockGame->StartFadeIn(ParamGetInt(m_iObjId, "NVRadFadeTime", 500), ParamGetInt(m_iObjId, "NVRadFadeRed", 0), ParamGetInt(	m_iObjId, "NVRadFadeGreen", 255), ParamGetInt(m_iObjId, "NVRadFadeBlue", 0));
 			}
 		}
 	}

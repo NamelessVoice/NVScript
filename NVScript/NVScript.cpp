@@ -9720,6 +9720,19 @@ MSGHANDLER cScr_NVSetPropertyTrap::OnActivate(sScrMsg* pMsg, sMultiParm* pReply,
 				}
 			}
 		}
+		
+		#if (_DARKGAME == 3)
+			SService<INetworkingSrv> pNetSrv(g_pScriptManager);
+			SService<IShockGameSrv> pShockGame(g_pScriptManager);
+			
+			for ( std::vector<int>::iterator it = objs.begin(); it != objs.end(); ++it)
+			{
+				if ( pNetSrv->IsPlayer(*it) )
+				{
+					pShockGame->RecalcStats(*it);
+				}
+			}
+		#endif
 	}
 
 	return 0;

@@ -1161,6 +1161,8 @@ If you would like to prefix a string of text in front of the number, use the <kb
 <b>Warning:</b> attempting to use this property to put the wrong type of data into a property will probably result in a crash, e.g. putting a string (via the prefix option) into a numeric property.</b><br/>
 The script does not currently work for floating point values or vectors. It only works for integers.<br/>
 This script has only been minimally tested.</p>
+<p><b>Multiple copies:</b> This script has multiple copies, allowing you to apply it multiple times with different parameters to the same object.  Add a number after the script name to use another instance of the script, and adjust the name of the script used in the script's parameters accordingly.<br/>
+<br/>Example: you can use the following scripts:  NVSetPropertyTrap, NVSetPropertyTrap2, NVSetPropertyTrap4, NVSetPropertyTrap4, NVSetPropertyTrap5.   In each case, replace the NVSetPropertyTrap in the name of each parameter with the name and number of the script you are using.  e.g. <kbd>NVSetPropertyTrap2Property</kbd> will specify the property for NVSetPropertyTrap2.</p>
 <p>This script is also called NVRandomPropertyTrap, and they can be used interchangeably (albeit with different param names.)</p>
 
 <h1><a name="NVRecalcTrap" id="NVRecalcTrap"></a>NVRecalcTrap<i>(NVTrap)</i> <br/>
@@ -2046,7 +2048,7 @@ Collision Type</b> set to <i>Slay On Impact</i> for this script to work.</p>
     <b>System Shock 2 only.</b></h1>
 <p>This script fixes various bugs and issues in SS2.  These include:<p>
 <ul>
-	<li>The player's weapon becomes invisibile when using Psi Invisibilty (to use this, set a Transparency->Alpha on the Inviso metaproperty; this will be copied to the weapon arm models.)</li>
+	<li>The player's weapon becomes invisible when using Psi Invisibility (to use this, set a Transparency->Alpha on the Inviso metaproperty; this will be copied to the weapon arm models.)</li>
 	<li>Psi Burnout no longer wastes your psi points when you have the Power Psi trait (can be disabled with <kbd>NVRegainPsiFromBurnout=0</kbd>)</li>
 	<li>The security system no longer breaks and leaves security cameras being permanently offline if you hack security, save, and reload</li>
 	<li>You can no longer continue to research items if you lose the required skill (e.g. due to using a LabAssistant implant)</li>
@@ -2214,6 +2216,13 @@ As of the complete rewrite of this script in v1.0.8, the arrows <i>will</i> beco
 
 
 <h2><a name="VersionHistory"></a>- Version History -</h2>
+<h1>v1.3.1</h1>
+<ul>
+	<li><a href="#NVSetPropertyTrap">NVSetPropertyTrap now supports multiple versions.</li>
+	<li><a href="#NVSetPropertyTrap">NVSetPropertyTrap</a> will now recalc stats if used on a Player (SS2 only)</li>
+	<li><a href="#NVPlayerScript">NVPlayerScript</a> now sends GainedTrait# message when gaining a trait.</li>
+	<li>NVSecurityComputer can now specify schema to play when hacked via NVSecurityComputerHackedSchema.</li>
+</ul>
 <h1>v1.3.0</h1>
 <ul>
 	<li>Source code now on GitHub.</li>

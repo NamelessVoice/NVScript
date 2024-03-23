@@ -4698,6 +4698,66 @@ public:
 END_DECLARE_SCRIPT(cScr_NVRandomPropertyTrap);
 
 
+/**************************
+ * NVSetPropertyTrap2
+ * (NVSetPropertyTrap)
+ *
+  */
+
+DECLARE_SCRIPT(cScr_NVSetPropertyTrap2, cScr_NVSetPropertyTrap)
+{
+public:
+	DECLARE_FACTORY(NVSetPropertyTrap2,NVSetPropertyTrap);
+	cScr_NVSetPropertyTrap2(const char* pszName, int iHostObjId) : cScr_NVSetPropertyTrap(pszName,iHostObjId)	{ }
+}
+END_DECLARE_SCRIPT(cScr_NVSetPropertyTrap2);
+
+
+/**************************
+ * NVSetPropertyTrap3
+ * (NVSetPropertyTrap)
+ *
+  */
+
+DECLARE_SCRIPT(cScr_NVSetPropertyTrap3, cScr_NVSetPropertyTrap)
+{
+public:
+	DECLARE_FACTORY(NVSetPropertyTrap3,NVSetPropertyTrap);
+	cScr_NVSetPropertyTrap3(const char* pszName, int iHostObjId) : cScr_NVSetPropertyTrap(pszName,iHostObjId)	{ }
+}
+END_DECLARE_SCRIPT(cScr_NVSetPropertyTrap3);
+
+
+/**************************
+ * NVSetPropertyTrap4
+ * (NVSetPropertyTrap)
+ *
+  */
+
+DECLARE_SCRIPT(cScr_NVSetPropertyTrap4, cScr_NVSetPropertyTrap)
+{
+public:
+	DECLARE_FACTORY(NVSetPropertyTrap4,NVSetPropertyTrap);
+	cScr_NVSetPropertyTrap4(const char* pszName, int iHostObjId) : cScr_NVSetPropertyTrap(pszName,iHostObjId)	{ }
+}
+END_DECLARE_SCRIPT(cScr_NVSetPropertyTrap4);
+
+
+/**************************
+ * NVSetPropertyTrap5
+ * (NVSetPropertyTrap)
+ *
+  */
+
+DECLARE_SCRIPT(cScr_NVSetPropertyTrap5, cScr_NVSetPropertyTrap)
+{
+public:
+	DECLARE_FACTORY(NVSetPropertyTrap5,NVSetPropertyTrap);
+	cScr_NVSetPropertyTrap5(const char* pszName, int iHostObjId) : cScr_NVSetPropertyTrap(pszName,iHostObjId)	{ }
+}
+END_DECLARE_SCRIPT(cScr_NVSetPropertyTrap5);
+
+
 
 /**************************
  * NVWhoKilledMe
