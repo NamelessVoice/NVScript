@@ -21,18 +21,18 @@
 
 #ifdef MODULE_NVSCRIPT
 // NVScript version defines
-#define SCRIPT_VERSION		1,3,0,0
-#define SCRIPT_VERSTRING	"1.3.0"
+#define SCRIPT_VERSION		1,3,1,0
+#define SCRIPT_VERSTRING	"1.3.1"
 #define SCRIPT_NAME			"NVScript Script Module"
 #define SCRIPT_LONGNAME		"NVScript " GAMENAME " OSM"
-#define SCRIPT_COPYRIGHT	"Copyright (C) 2022 Nameless Voice"
+#define SCRIPT_COPYRIGHT	"Copyright (C) 2024 Nameless Voice"
 #elif defined(MODULE_NVDEBUG)
 // NVDebug version defines
 #define SCRIPT_VERSION		1,0,0,0
 #define SCRIPT_VERSTRING	"1.0.0"
 #define SCRIPT_NAME			"NVDebug Script Module"
 #define SCRIPT_LONGNAME		"NVDebug " GAMENAME " OSM"
-#define SCRIPT_COPYRIGHT	"Copyright (C) 2022 Nameless Voice"
+#define SCRIPT_COPYRIGHT	"Copyright (C) 2024 Nameless Voice"
 #else
 #ifdef RC_INVOKED
 #error buildconfig.h not updated for current module.

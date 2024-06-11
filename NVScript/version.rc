@@ -3,7 +3,7 @@
 #include "..\buildconfig.h"
 #else
 #ifndef SCRIPT_COPYRIGHT
-#define SCRIPT_COPYRIGHT "Copyright (C) 2014 Nameless Voice"
+#define SCRIPT_COPYRIGHT "Copyright (C) 2024 Nameless Voice"
 #endif
 #endif
 
