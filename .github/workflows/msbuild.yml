@@ -11,12 +11,47 @@ env:
   SOLUTION_FILE_PATH: NVScript.sln
 
 permissions:
-  contents: read
+  contents: write
 
 jobs:
+  check_version:
+    runs-on: windows-latest
+
+    steps:
+    - name: Checkout (with tags)
+      uses: actions/checkout@v4
+      with:
+        fetch-depth: 0
+
+    - name: Generate version number for release
+      if: ${{ github.ref == 'refs/heads/master' }}
+      run: |
+        $CurrentVersion = git describe --tags --abbrev=0
+        $NewVersion = ($CurrentVersion -replace "(v[0-9]+\.[0-9]+\.)([0-9])+", "`${1}") + (1 + ($CurrentVersion -replace "(v[0-9]+\.[0-9]+\.)([0-9])+", "`${2}"))
+        echo "Old version was $CurrentVersion"
+        echo "New version is $NewVersion"
+        $NewVersion | Out-File -FilePath github.version
+
+    - name: Generate version number for non-release build (with datestamp)
+      if: ${{ github.ref != 'refs/heads/master' }}
+      run: |
+        $CurrentVersion = git describe --tags --abbrev=0
+        $NewVersion = $(date "+v%Y.%m.%d")
+        echo "Old version was $CurrentVersion"
+        echo "New version is $NewVersion"
+        $NewVersion | Out-File -FilePath github.version
+
+    - name: Upload version number as artefact
+      uses: actions/upload-artifact@v4
+      with:
+        name: github.version
+        path: |
+          github.version
+
   build:
     runs-on: windows-latest
-    
+    needs: check_version
+
     strategy:
       matrix:
         include:
@@ -28,7 +63,8 @@ jobs:
             BUILD_CONFIGURATION: ReleaseSS2
 
     steps:
-    - uses: actions/checkout@v4
+    - name: Checkout code
+      uses: actions/checkout@v4
 
     - name: Add MSBuild to PATH
       uses: microsoft/setup-msbuild@v2
@@ -36,6 +72,25 @@ jobs:
     - name: Restore NuGet packages
       working-directory: ${{env.GITHUB_WORKSPACE}}
       run: nuget restore ${{env.SOLUTION_FILE_PATH}}
+
+    - name: Fetch version number artefact
+      uses: actions/download-artifact@v4
+      with:
+        name: github.version
+
+    - name: Generate version number
+      run: |
+        $VersionNumber=$(cat .\github.version)
+        echo "Version number is $VersionNumber"
+        $VersionMajor = ($VersionNumber -replace "v([0-9]+).([0-9]+).([0-9]+)", '${1}')
+        $VersionMinor = ($VersionNumber -replace "v([0-9]+).([0-9]+).([0-9]+)", '${2}')
+        $VersionBuild = ($VersionNumber -replace "v([0-9]+).([0-9]+).([0-9]+)", '${3}')
+        (Get-Content .\buildconfig.h) -replace '(#define\W+NVSCRIPT_VERSION_MAJOR\W+)[0-9]+', "`${1}$VersionMajor" | Set-Content .\buildconfig.h
+        (Get-Content .\buildconfig.h) -replace '(#define\W+NVSCRIPT_VERSION_MINOR\W+)[0-9]+', "`${1}$VersionMinor" | Set-Content .\buildconfig.h
+        (Get-Content .\buildconfig.h) -replace '(#define\W+NVSCRIPT_VERSION_BUILD\W+)[0-9]+', "`${1}$VersionBuild" | Set-Content .\buildconfig.h
+
+    - name: Read build config
+      run: echo "$(Get-Content .\buildconfig.h)"
 
     - name: Build
       working-directory: ${{env.GITHUB_WORKSPACE}}
@@ -47,5 +102,38 @@ jobs:
       with:
         name: ${{matrix.BUILD_NAME}}
         path: |
-          D:\a\nvscript\nvscript\${{matrix.BUILD_CONFIGURATION}}\NVScript\NVScript.osm
-          D:\a\nvscript\nvscript\${{matrix.BUILD_CONFIGURATION}}\NVScript\NVScript.html
+          D:\a\NVScript\NVScript\${{matrix.BUILD_CONFIGURATION}}\NVScript\NVScript.osm
+          D:\a\NVScript\NVScript\${{matrix.BUILD_CONFIGURATION}}\NVScript\NVScript.html
+
+  release:
+    runs-on: windows-latest
+    needs: build
+    if: ${{ github.ref == 'refs/heads/master' }}
+
+    steps:
+    - name: Download artefacts
+      uses: dawidd6/action-download-artifact@v6
+      with:
+        path: outputs/
+        skip_unpack: true
+
+    - name: Fetch version number artefact
+      uses: actions/download-artifact@v4
+      with:
+        name: github.version
+
+    - name: Generate release tag
+      id: tag
+      run: |
+        echo "release_tag=$(cat .\github.version)" >> $env:GITHUB_OUTPUT
+
+    - name: File listing
+      run: ls -r
+
+    - name: Create release
+      uses: softprops/action-gh-release@v2
+      with:
+        Name: NVScript-${{ steps.tag.outputs.release_tag }}
+        tag_name: ${{ steps.tag.outputs.release_tag }}
+        body: Automatic build on ${{ steps.tag.outputs.release_tag }}
+        files: outputs/*.zip
