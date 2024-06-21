@@ -1,4 +1,4 @@
-NVScript Copyright (c) 2022 Nameless Voice <namelessvoice@gmail.com>
+NVScript Copyright (c) 2024 Nameless Voice <namelessvoice@gmail.com>
 
 Based upon code from:
 tnhScript Copyright (c) 2003-2005 Tom N Harris <telliamed@whoopdedo.cjb.net>
