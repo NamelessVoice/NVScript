@@ -1,22 +1,40 @@
-To build, open NVScript.sln in Visual Studio (2017 or later.)
+Building requires either:
+	a) Visual Studio 2017 or later
+	b) Another C++ IDE, such as Rider, with appropriate MSBuild tools installed.
 
-1) Change the configuration in the toolbar to one of:
+By default, NVScript is built using Windows Build tools 141 with Windows XP support.
+You will need to install these to build script modules that work on Windows XP.
+	Under Visual Studio installer, Modify, Individual components:
+	- C++ Windows XP support for VS 2017 (v141) tools
+	- MSVC v141 - VS 2017 C++ - x64/x86 build tools (v14.16)
+
+Alternatively, change the build tool version in all of the project files to a more recent version (you will lose XP support.)
+
+
+
+To build using Visual Studio (2017 or later):
+
+1) Open NVScript.sln
+
+2) Change the configuration in the toolbar to one of:
 	Release		- Build for Thief 2
 	ReleaseSS2	- Build for System Shock 2
 	ReleaseT1	- Build for Thief: The Dark Project
 
 	(Debug builds likely won't work, as the file size tends to be larger than Dark will load)
 
-2) Click "Build"
+3) Click "Build"
 
-3) The script module will be built into the relevant Release folder.
+4) The script module will be built into the relevant Release folder.
    NVDebug will also be built - find it in the relevant "Release" folder.
 
-4) The relevant Deploy script will be run after the build has completed (Deploy-T2.cmd, Deploy-SS2.cmd, Deploy-T1);
+5) The relevant Deploy script will be run after the build has completed (Deploy-T2.cmd, Deploy-SS2.cmd, Deploy-T1);
    these can be set up to automatically copy the created files to wherever they are needed, edit as needed.
-
 
 There are also old makefiles and batch scripts for building using G++ with a CygWin / MingW environment.
 I wouldn't recommend using them, as I have no idea if they still work.  They are provided purely for academic interest.
 
 
+
+The project can also be built automatically on GitHub.
+Script modules will automatically be created for any commit to either a PR branch or master.
