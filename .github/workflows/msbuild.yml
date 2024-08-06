@@ -119,6 +119,7 @@ jobs:
     - name: Download artefacts
       uses: dawidd6/action-download-artifact@v6
       with:
+        run_id: ${{ github.run_id }}
         path: outputs/
         skip_unpack: true
 
@@ -141,4 +142,4 @@ jobs:
         Name: NVScript-${{ steps.tag.outputs.release_tag }}
         tag_name: ${{ steps.tag.outputs.release_tag }}
         body: Automatic build on ${{ steps.tag.outputs.release_tag }}
-        files: outputs/*.zip
+        files: outputs/NVScript*.zip
