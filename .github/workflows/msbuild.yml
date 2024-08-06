@@ -116,14 +116,11 @@ jobs:
     if: ${{ github.ref == 'refs/heads/master' }}
 
     steps:
-    - name: Sleep for 30 seconds
-      run: Start-Sleep -s 30
-      shell: powershell
-
     - name: Download artefacts
       uses: dawidd6/action-download-artifact@v6
       with:
         branch: master
+        run_id: ${{ github.run_id }}
         path: outputs/
         skip_unpack: true
 
