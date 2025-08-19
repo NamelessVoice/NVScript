@@ -1763,10 +1763,17 @@ MSGHANDLER cScr_NVPlayerScript::OnBurnout(sScrMsg* pMsg, sMultiParm* pReply, eSc
 				int iPower = 0;
 				pPropSrv->Get(mpProp, m_iObjId, "PsiState", "");
 				iPower = static_cast<int>(mpProp);
-				
+
 				if ( iPower != 40 )
 				{
+					// Calculate number of psi points based on psi power tier
 					int iPsi = 1 + (iPower / 8);
+
+					// Double the amount if Recursive Psi is active (which doubles PSI costs)
+					if (pShockGame->IsPsiActive(14))
+					{
+						iPsi *= 2;
+					}
 					g_pScriptManager->SetTimedMessage2(m_iObjId, "RegainPsiFromBurnout", 10, kSTM_OneShot, iPsi);
 					pShockGame->StartFadeIn(2000, 0, 128, 255);
 				}
