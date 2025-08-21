@@ -528,6 +528,7 @@ private:
 	static void __stdcall ListenFunc(sPropertyListenMsg* sMsg, PropListenerData pData);
 	PropListenerHandle m_hListenHandle;
 	IGenericProperty* m_pProp;
+	int m_psiCosts[40];
 	void StartListener();
 	void StopListener();
 	DECLARE_MSGHANDLER(OnEndScript);

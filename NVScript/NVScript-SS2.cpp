@@ -1406,14 +1406,45 @@ MSGHANDLER cScr_NVPlayerScript::OnBeginScript(sScrMsg* pMsg, sMultiParm* pReply,
 		{
 			pShockGame->DisableAlarmGlobal();
 			pShockGame->RemoveAlarm();
-			pShockGame->OverlayChange(29, 1);	
+			pShockGame->OverlayChange(29, 1);
 		}
 	}
 
 	SService<IShockOverlaySrv> pShockOverlay(g_pScriptManager);
 	playerOverlay.init(m_iObjId);
 	pShockOverlay->SetHandler(&playerOverlay);
-	
+
+	// Query PSI powers and make a table of their costs
+	SInterface<IPropertyManager> pPM(g_pScriptManager);
+
+	sPropertyObjIter sIter;
+	int iObj;
+	cMultiParm mpPower;
+	cMultiParm mpCost;
+
+	// Initialise the psi costs array, just in case
+	for (int i = 0 ; i < 40; ++i)
+	{
+		m_psiCosts[i] = i/8;
+	}
+
+	IProperty* pProp = pPM->GetPropertyNamed("PsiPower");
+	if (pProp)
+	{
+		pProp->IterStart(&sIter);
+		while (pProp->IterNext(&sIter, &iObj))
+		{
+			if (iObj < 0) // Metaproperties only
+			{
+				pPropSrv->Get(mpPower, iObj, "PsiPower", "Power");
+				pPropSrv->Get(mpCost, iObj, "PsiPower", "Start Cost");
+
+				m_psiCosts[mpPower] = mpCost;
+			}
+		}
+		pProp->IterStop(&sIter);
+	}
+
 	return 0;
 }
 
@@ -1767,7 +1798,7 @@ MSGHANDLER cScr_NVPlayerScript::OnBurnout(sScrMsg* pMsg, sMultiParm* pReply, eSc
 				if ( iPower != 40 )
 				{
 					// Calculate number of psi points based on psi power tier
-					int iPsi = 1 + (iPower / 8);
+					int iPsi = m_psiCosts[iPower];
 
 					// Double the amount if Recursive Psi is active (which doubles PSI costs)
 					if (pShockGame->IsPsiActive(14))
@@ -2432,7 +2463,7 @@ MSGHANDLER cScr_NVObjState::OnBeginScript(sScrMsg* pMsg, sMultiParm* pReply, eSc
 			m_hTimerHandle = g_pScriptManager->SetTimedMessage2(m_iObjId, "NVObjStateTimer", iTimer, kSTM_Periodic, g_mpUndef);
 		}
 	}
-	
+
 	return 0;
 }
 
