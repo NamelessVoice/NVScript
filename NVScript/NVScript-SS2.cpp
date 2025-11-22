@@ -2597,10 +2597,10 @@ MSGHANDLER cScr_NVSimpleRepair::OnFrob(sScrMsg* pMsg, sMultiParm* pReply, eScrTr
 {
 //	sFrobMsg* pFrobMsg = static_cast<sFrobMsg*>(pMsg);
 	SService<IShockGameSrv> pShockGame(g_pScriptManager);
-	
+
 	SService<IPropertySrv> pPropSrv(g_pScriptManager);
 	cMultiParm mpProp;
-	
+
 	//Check state
 	int iState = 0;
 	cMultiParm mpState;
@@ -2609,16 +2609,17 @@ MSGHANDLER cScr_NVSimpleRepair::OnFrob(sScrMsg* pMsg, sMultiParm* pReply, eScrTr
 		pPropSrv->Get(mpState, m_iObjId, "ObjState", NULL);
 		iState = static_cast<int>(mpState);
 	}
-	
+
 	if ( iState == 1 ) // broken
 	{
+		pShockGame->OverlayChangeObj(6, 0, m_iObjId);
 		pShockGame->OverlayChangeObj(6, 1, m_iObjId);
 //		DisplayPrintf("%i!", pFrobMsg->Abort);
 //		pFrobMsg->Abort = 3; // Block frobs ??
 //		DisplayPrintf("%i!", pFrobMsg->Abort);
 		MultiParmAssignInt(pReply, -1);
 	}
-	
+
 	return 0;
 }
 
